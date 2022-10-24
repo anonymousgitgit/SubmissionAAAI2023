@@ -1,0 +1,45 @@
+batch_size: 48
+checkpoint_dir: checkpoints_cpp1400_scratch
+checkpoint_per_epoch: 1
+clip_gradient: null
+normalization: null
+dataset_paths:
+  test: datasets/C++1400/test
+  train: datasets/C++1400/train
+  val: datasets/C++1400/val
+  classmapping: datasets/C++1400/metadata/C++1400_mapping.json
+dropout_rate: 0.3
+early_stopping:
+  patience: 8
+epochs: 100
+etypes:
+- control_flow_edge
+- next_stmt_edge
+- ast_edge
+- data_flow_edge
+in_channels: 256
+log_dir: checkpoints_cpp1400_scratch
+n_classes: 1400
+num_layers: 1
+num_graph_heads: 8
+num_graph_steps: 8
+old_checkpoint_path:  ''
+optimizer:
+  name: AdamW
+  params:
+    lr: 0.001
+out_channels: 256
+scheduler:
+  name: CosineAnnealingLR
+  params:
+    T_max: 8
+    eta_min: 1.0e-06
+time_steps:
+- 2
+- 2
+- 1
+- 2
+- 1
+vocab:
+  node_token: vocab/C++1400-node-tokens.txt
+  node_type: vocab/C++1400-node-types.txt

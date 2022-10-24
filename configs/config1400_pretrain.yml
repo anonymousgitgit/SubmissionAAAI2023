@@ -1,0 +1,48 @@
+batch_size: 64
+checkpoint_dir: checkpoints_cpp1400_pretrained
+checkpoint_per_epoch: 1
+clip_gradient: null
+normalization: null
+dataset_paths:
+  test: datasets/C++1400/test
+  train: datasets/C++1400/train
+  val: datasets/C++1400/val
+  classmapping: datasets/C++1400/metadata/C++1400_mapping.json
+dropout_rate: 0.1
+early_stopping:
+  patience: 8
+epochs: 100
+etypes:
+- control_flow_edge
+- next_stmt_edge
+- ast_edge
+- data_flow_edge
+in_channels: 512
+log_dir: logs_cpp1400_pretrained
+n_classes: 1400
+num_layers: 1
+num_graph_heads: 8
+num_graph_steps: 8
+old_checkpoint_path: ''
+optimizer:
+  name: Adam
+  params:
+    lr: 0.0000001
+out_channels: 512
+scheduler:
+  name: OneCycleLR
+  params:
+    max_lr: 0.0001
+    epochs: 30
+    anneal_strategy: linear
+    steps_per_epoch: 1
+    pct_start: 0.3
+time_steps:
+- 2
+- 2
+- 1
+- 2
+- 1
+vocab:
+  node_token: vocab/C++1400-order-node-tokens.txt
+  node_type: vocab/C++1400-order-node-types.txt

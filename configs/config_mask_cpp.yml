@@ -1,0 +1,53 @@
+batch_size: 64
+checkpoint_dir: checkpoints_mask_cpp
+checkpoint_per_epoch: 1
+clip_gradient: null
+attn_type: general
+dataset_paths: 
+  test: 
+  train: 
+  val: 
+dropout_rate: 0.1
+early_stopping:
+  patience: 20
+epochs: 200
+etypes:
+- control_flow_edge
+- next_stmt_edge
+- ast_edge
+- data_flow_edge
+in_channels: 512
+log_dir: logs_mask_cpp
+num_layers: 1
+num_graph_heads: 8
+num_heads_decoder: 8
+num_decoder_layers: 6
+feedforward_decoder_channels: 1024
+dropout_decoder: 0.2
+num_graph_steps: 6
+old_checkpoint_path: checkpoints/ECHELON-CPP.tar
+normalization: null
+optimizer:
+  name: Adam
+  params:
+    betas:
+    - 0.99
+    - 0.999
+    lr: 0.0001
+out_channels: 512
+scheduler:
+  name: CosineAnnealingLR
+  params:
+    T_max: 16
+    eta_min: 1.0e-06
+time_steps:
+- 2
+- 2
+- 1
+- 2
+- 1
+max_seq_length: 50
+vocab:
+  node_type: vocab/C++1000_node_types_.txt
+  node_token: vocab/C++1000_node_tokens_.txt
+  pcn_cpp_1000: vocab/C++1000-vocab_.txt

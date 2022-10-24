@@ -1,0 +1,54 @@
+batch_size: 48
+checkpoint_dir: checkpoints_mask_java
+checkpoint_per_epoch: 1
+clip_gradient: null
+attn_type: general
+dataset_paths:
+  test: 
+  train: 
+  val: 
+dropout_rate: 0.1
+early_stopping:
+  patience: 20
+epochs: 200
+etypes:
+- control_flow_edge
+- next_stmt_edge
+- ast_edge
+- data_flow_edge
+in_channels: 768
+log_dir: logs_mask_java
+num_layers: 1
+num_graph_heads: 12
+num_heads_decoder: 12
+num_decoder_layers: 12
+feedforward_decoder_channels: 3072
+dropout_decoder: 0.1
+num_graph_steps: 6
+old_checkpoint_path: checkpoints/ECHELON-Java-small.tar
+normalization: null
+optimizer:
+  name: Adam
+  params:
+    betas:
+    - 0.99
+    - 0.999
+    lr: 0.0001
+out_channels: 768
+scheduler:
+  name: CosineAnnealingLR
+  params:
+    T_max: 16
+    eta_min: 1.0e-06
+time_steps:
+- 2
+- 2
+- 1
+- 2
+- 1
+max_seq_length: 30
+vocab:
+  node_type: vocab/slm-java-node-types.txt
+  node_token: vocab/slm-java-node-tokens.txt
+  slm_java: vocab/SLM-vocab-bpe.txt
+  tokenizer: vocab/SLM-Java-tokenizer-bpe.json

@@ -1,0 +1,46 @@
+batch_size: 64
+checkpoint_dir: checkpoints_clone_astnn
+checkpoint_per_epoch: 1
+clip_gradient: null
+normalization: null
+dataset_paths:
+  data: datasets/POJ104/programs.pkl
+  test: datasets/POJ104/test_astnn/test.pkl
+  train: datasets/POJ104/train_astnn/train.pkl
+  val: datasets/POJ104/val_astnn/val.pkl
+dropout_rate: 0.1
+early_stopping:
+  patience: 8
+epochs: 100
+etypes:
+- control_flow_edge
+- next_stmt_edge
+- ast_edge
+- data_flow_edge
+in_channels: 512
+log_dir: logs_clone_astnn
+n_classes: 1400
+num_layers: 1
+num_graph_heads: 8
+num_graph_steps: 8
+old_checkpoint_path: checkpoints/cp-clone.tar
+optimizer:
+  name: AdamW
+  params:
+    lr: 0.0000005
+out_channels: 512
+scheduler:
+  name: OneCycleLR
+  params:
+    max_lr: 0.0002
+    epochs: 20
+    anneal_strategy: linear
+time_steps:
+- 2
+- 2
+- 1
+- 2
+- 1
+vocab:
+  node_token: vocab/OJ104-order-node-token.txt
+  node_type: vocab/OJ104-order-node-type.txt
